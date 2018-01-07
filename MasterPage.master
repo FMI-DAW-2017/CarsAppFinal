@@ -1,0 +1,63 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div style="width: auto; height: 165px; padding: 10px;">
+            
+            <div style="float: left">
+                <h2>My Garage</h2>
+            
+                <div style="padding-top: 20px">
+                    <asp:HyperLink ID="HyperLink4" NavigateUrl="~/Index.aspx" runat="server" ForeColor="Black">My Cars</asp:HyperLink>
+                    |
+                    <asp:HyperLink ID="HyperLink5" NavigateUrl="~/AddCar.aspx" runat="server" ForeColor="Black">Add Car</asp:HyperLink>
+                    <asp:LoginView ID="LoginView3" runat="server">
+                        <AnonymousTemplate>
+                        |
+                        <asp:HyperLink ID="HyperLink3" NavigateUrl="~/UserSignUp.aspx" runat="server" ForeColor="Black">Sign Up</asp:HyperLink>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                        |
+                        <asp:HyperLink ID="HyperLink3" NavigateUrl="~/UpdateProfile.aspx" runat="server" ForeColor="Black">Profile</asp:HyperLink>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+                 <div style="padding-top: 10px">
+                    <asp:TextBox ID="TBSearch" runat="server"></asp:TextBox>&nbsp;
+                    <asp:Button ID="BSearch" runat="server" Text="Search" OnClick="BSearch_Click" />
+            
+                </div>
+            </div>
+               
+            <div style="float: right">
+            
+                <asp:LoginView ID="LoginView1" runat="server">
+                    <AnonymousTemplate>
+                        <asp:Login ID="Login1" runat="server" CreateUserText="Register" CreateUserUrl="~/UserSignUp.aspx" BackColor="#F7F7DE" BorderColor="#CCCC99" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="10pt">
+                            <TitleTextStyle BackColor="#6B696B" Font-Bold="True" ForeColor="#FFFFFF" />
+                        </asp:Login>
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Signed in as <asp:LoginName ID="LoginName1" runat="server" />! <br /> 
+                        <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
